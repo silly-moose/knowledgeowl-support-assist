@@ -168,14 +168,12 @@ $(function() {
 						setTimeout(function(){$('.ko-createback').click();}, 1000);
 					} else {
 						//alert user to problem creating article
-						console.log(data);
 						$('.working-message').addClass('error').find('span').text('Error creating article');
 						setTimeout(function(){$('.working-overlay, .working-message-cntr').fadeOut(500);}, 2000);
 					}
 				},
 				function(response) {
 					//alert user to problem creating article
-					console.log(response);
 					$('.working-message').addClass('error').find('span').text('Error creating article');
 					setTimeout(function(){$('.working-overlay, .working-message-cntr').fadeOut(500);}, 2000);
 				}
@@ -244,7 +242,7 @@ $(function() {
 		
 		//set the ajax settings
 		var articleApiSettings = {
-			url:'https://app.knowledgeowl.com/javascript/remote-suggest?type=article&zid=' + ticketID + '&limit=' + articleLimit + '&kbid={{setting.kbid}}&phrase=' + phrase + ignoreSearchResultsParam,
+			url:'https://app.knowledgeowl.com/javascript/remote-suggest?type=article&zid=' + ticketID + '&limit=' + articleLimit + '&kbid={{setting.kbid}}&phrase=' + encodeURIComponent(phrase) + ignoreSearchResultsParam,
 			type:'GET',
 			dataType: 'json',
 			contentType: 'application/json',
@@ -272,7 +270,6 @@ $(function() {
 			function(response) {
 				//inform customer of issue with meta data settings
 				$('.ko-searching').text('There is an error with your installation.');
-				console.log(response);
 			}
 		);
 	}
