@@ -11,13 +11,15 @@
 		"name": "apikey",
 		"type": "text",
 		"required": true,
-		"secure": true
+		"secure": true,
+		"scopes": ["url"]
 	},
 	{
 		"name": "kbid",
 		"type": "text",
 		"required": true,
-		"secure": true
+		"secure": true,
+		"scopes": ["url"]
 	},
 	{
 		"name": "articlelimit",

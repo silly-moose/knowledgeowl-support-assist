@@ -287,4 +287,9 @@ $(function() {
 		$('.ko-searching').toggle(searching);
 		$('#ko-content').toggle(!searching);
 	}
+
+	//clean up pending timers when the app is torn down
+	client.on('app.willDestroy', function() {
+		clearTimeout(searchTimer);
+	});
 });
